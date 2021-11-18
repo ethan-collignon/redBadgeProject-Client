@@ -1,5 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+
 // import { Route, Link, Switch, BrowserRouter } from 'react-router-dom';
 
 const Navigation = () => {
@@ -16,6 +18,7 @@ const Navigation = () => {
                             {/* <li><Link></Link>Admin</li> */}
                             Admin
                         </BrowserRouter>
+                        <button>Logout</button>
                     </Navbar>
                 </ul>
             </div>
