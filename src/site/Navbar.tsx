@@ -22,15 +22,15 @@ const Navigation = () => {
                         <button>Logout</button>
                     </Navbar>
                 </ul>
-    
+
             </div>
             <div className='navigation-route'>
-               {/* <Switch>
+                {/* <Switch>
                    <Route exact path='/home'><Home /></Route>
                    <Route exact path='/resources'><Resources /></Route>
                    <Route exact path='/'><Home /></Route>
                </Switch> */}
-           </div>
+            </div>
         </div>
     );
 };

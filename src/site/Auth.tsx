@@ -9,12 +9,11 @@ type Authentication = {
     password: string,
     login: boolean,
     user: {}
-    // updateLocalStorage: string,
 }
 
-type Props ={
-    updateToken:(newToken: string) => void
-    setUser:(user: string) => void
+type Props = {
+    updateToken: (newToken: string) => void
+    setUser: (user: string) => void
 }
 
 class Auth extends Component<Props, Authentication> {
@@ -27,13 +26,10 @@ class Auth extends Component<Props, Authentication> {
             password: '',
             login: true,
             user: {}
-            // updateLocalStorage: '',
         }
         this.title = this.title.bind(this)
         this.loginToggle = this.loginToggle.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.SigninFields = this.SigninFields.bind(this)
-        // this.updateLocalStorage = this.updateLocalStorage(this)
     }
 
     title = () => {
@@ -52,51 +48,10 @@ class Auth extends Component<Props, Authentication> {
         })
     }
 
-    // SigninFields = () => {this.state.login ?
-    //     ( 
-    //         <div>
-    //             <Form>
-    //             <h1>{this.title()}</h1>
-    //             <FormGroup>
-    //                 <Label>First Name</Label>
-    //                 <Input onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
-    //             </FormGroup>
-    //             <FormGroup>
-    //                 <Label>Last Name</Label>
-    //                 <Input onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
-    //             </FormGroup>
-    //             <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
-    //         <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>New User? Click here to create an account.</u></b></p>
-    //         </Form>
-    //         </div>
-    //     ) : <Form className="login-form">
-    //         <h1>{this.title()}</h1>
-    //         <FormGroup>
-    //             <Label>First Name</Label>
-    //             <Input onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
-    //         </FormGroup>
-    //         <FormGroup>
-    //             <Label>Last Name</Label>
-    //             <Input onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
-    //         </FormGroup>
-    //         <FormGroup>
-    //             <Label>Email</Label>
-    //             <Input onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
-    //         </FormGroup>
-    //         <FormGroup>
-    //             <Label>Password</Label>
-    //             <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
-    //         </FormGroup>
-
-    //         <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
-    //         <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
-    //     </Form>}
-
-
     handleSubmit = (e: any) => {
         e.preventDefault();
         console.log(this.state.firstName);
-        
+
         let reqBody = this.state.login ?
             {
                 user: {
@@ -114,8 +69,8 @@ class Auth extends Component<Props, Authentication> {
         let url = this.state.login
             ? `http://localhost:3000/user/login`
             : `http://localhost:3000/user/register`;
-            console.log(reqBody);
-            
+        console.log(reqBody);
+
         fetch(url, {
             method: "POST",
             body: JSON.stringify(reqBody),
@@ -134,50 +89,51 @@ class Auth extends Component<Props, Authentication> {
             })
     };
     render() {
-       return (
-        <div>
-        {this.state.login ?
-        ( 
+        return (
             <div>
-                <Form>
-                <h1>{this.title()}</h1>
-                <FormGroup>
-                    <Label>Email</Label>
-                    <Input onChange={(e) => this.setState({ email: e.target.value })} type="text" id="email" value={this.state.email}></Input>
-                </FormGroup>
-                <FormGroup>
-                    <Label>Password</Label>
-                    <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
-                </FormGroup>
-                <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
-            <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>New User? Click here to create an account.</u></b></p>
-            </Form>
-            </div>
-        ) : (
-        <Form className="login-form">
-            <h1>{this.title()}</h1>
-            <FormGroup>
-                <Label>First Name</Label>
-                <Input onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
-            </FormGroup>
-            <FormGroup>
-                <Label>Last Name</Label>
-                <Input onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
-            </FormGroup>
-            <FormGroup>
-                <Label>Email</Label>
-                <Input onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
-            </FormGroup>
-            <FormGroup>
-                <Label>Password</Label>
-                <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
-            </FormGroup>
+                {this.state.login ?
+                    (
+                        <div>
+                            <Form>
+                                <h1>{this.title()}</h1>
+                                <FormGroup>
+                                    <Label>Email</Label>
+                                    <Input onChange={(e) => this.setState({ email: e.target.value })} type="text" id="email" value={this.state.email}></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label>Password</Label>
+                                    <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                                </FormGroup>
+                                <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                                <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>New User? Click here to create an account.</u></b></p>
+                            </Form>
+                        </div>
+                    ) : (
+                        <Form className="login-form">
+                            <h1>{this.title()}</h1>
+                            <FormGroup>
+                                <Label>First Name</Label>
+                                <Input onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Last Name</Label>
+                                <Input onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Email</Label>
+                                <Input onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>Password</Label>
+                                <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                            </FormGroup>
 
-            <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
-            <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
-        </Form>
-        )}
-    </div>
-    )}
+                            <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                            <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
+                        </Form>
+                    )}
+            </div>
+        )
+    }
 }
 export default Auth
