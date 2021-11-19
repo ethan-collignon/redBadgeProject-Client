@@ -8,7 +8,8 @@ type Authentication = {
     email: string,
     password: string,
     login: boolean,
-    user: {}
+    user: {},
+    role: string
 }
 
 type Props = {
@@ -25,7 +26,8 @@ class Auth extends Component<Props, Authentication> {
             email: '',
             password: '',
             login: true,
-            user: {}
+            user: {},
+            role: 'user'
         }
         this.title = this.title.bind(this)
         this.loginToggle = this.loginToggle.bind(this)
@@ -64,6 +66,7 @@ class Auth extends Component<Props, Authentication> {
                     lastName: this.state.lastName,
                     email: this.state.email,
                     password: this.state.password,
+                    role: this.state.role
                 },
             };
         let url = this.state.login
