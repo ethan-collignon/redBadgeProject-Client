@@ -1,6 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import Auth from './Auth';
 
 // import { Route, Link, Switch, BrowserRouter } from 'react-router-dom';
 
@@ -21,6 +22,7 @@ const Navigation = () => {
                         <button>Logout</button>
                     </Navbar>
                 </ul>
+    
             </div>
             <div className='navigation-route'>
                {/* <Switch>
