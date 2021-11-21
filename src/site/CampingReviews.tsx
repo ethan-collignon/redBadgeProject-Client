@@ -17,7 +17,7 @@ export default class CampingReview extends Component<Props, Camping> {
         }
     }
 
-    componentDidMount = () => {
-        this.fetchCampsiteReviews();
-    }
+    // componentDidMount = () => {
+    //     this.fetchCampsiteReviews();
+    // }
 }
