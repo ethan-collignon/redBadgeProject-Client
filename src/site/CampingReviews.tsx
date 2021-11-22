@@ -1,23 +1,29 @@
 import React, {Component} from 'react';
-import CampingCreate from '../components/CampingCreate';
+// import CampingCreate from '../components/CampingCreate';
+// import GetCampingReviews from '../components/GetCampingReviews';
 
-type Camping = {
+// type CampingState = {
+//     campsite: []
+    
+    
+// }
 
-}
+// type Props = {
+//  sessionToken: string
+//  fetchReview: () => void
+// }
 
-type Props = {
- sessionToken: string
-}
+// export default class CampingReview extends Component<Props, CampingState> {
+//     constructor(props: Props){
+//         super(props)
+//         this.state = {
+//             campsite: [],
+            
+//         }
+//     }
 
-export default class CampingReview extends Component<Props, Camping> {
-    constructor(props: Props){
-        super(props)
-        this.state = {
-            CampingCreate
-        }
-    }
-
-    // componentDidMount = () => {
-    //     this.fetchCampsiteReviews();
-    // }
-}
+//     componentDidMount = () => {
+//         this.props.fetchReview();
+//     }
+// }
+ export {}

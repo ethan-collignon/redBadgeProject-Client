@@ -83,3 +83,4 @@ export default class CampingCreate extends Component<Props, Create> {
         )
     }
 }
+
