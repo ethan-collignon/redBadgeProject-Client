@@ -5,6 +5,7 @@ type Props = {
     sessionToken: string
     updateCampsite: UpdateReview
     fetchCampReviews: () => void
+    
 }
 
 type UpdateReview = {
@@ -53,6 +54,9 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
 
     render() {
         return (
+            // <div>
+            //     <Button color="danger" onClick={this.updateCampsiteReview} </Button>
+            // </div>
             <Modal isOpen={true}>
                 <ModalHeader>Edit Review</ModalHeader>
                 <ModalBody>

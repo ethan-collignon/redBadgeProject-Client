@@ -11,7 +11,7 @@ type CampingInfo = {
 
 type Props = {
     sessionToken: string
-    // fetchCampReview: () => void
+     fetchCampReview: () => void
     // campsite: any
 }
 
@@ -28,12 +28,16 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
 
     createReview = (e: any) => {
         e.preventDefault();
+        console.log("functionHit");
+        console.log("state: ", this.state);
+        console.log("props:", this.props)
+        
         fetch("http://localhost:3000/campsite/create", {
             method: "POST",
             body: JSON.stringify({ campsite: { siteName: this.state.siteName, cost: this.state.cost, rating: this.state.rating, review: this.state.review } }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `${this.props.sessionToken}`
+                'Authorization': `Bearer ${this.props.sessionToken}`
             })
         })
             .then(res => res.json())
@@ -45,7 +49,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     rating: 0,
                     review: ''
                 });
-                // this.props.fetchCampReview();
+                 this.props.fetchCampReview();
             })
             .catch(err => console.log(err))
     }
@@ -53,7 +57,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
     render() {
         return (
             <div>
-            <Form onSubmit={this.createReview}>
+            <Form>
                 <FormGroup>
                     <Label htmlFor='campsiteName'>
                         <Input placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({siteName: String (e.target.value)})}>
@@ -79,7 +83,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     </Label>
                 </FormGroup>
             </Form>
-            <Button type='submit'>Submit</Button>
+            <Button onClick={(e) => {this.createReview(e)}} type='submit'>Submit</Button>
             </div>
         )
     }

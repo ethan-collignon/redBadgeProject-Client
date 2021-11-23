@@ -28,12 +28,6 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
             })
         })
             .then(() => this.props.fetchCampReview())
-        // .then(res => res.json())
-        // .then(data => {
-        //     // this.fetchCampReview();
-        //     this.deleteReviews(id);
-        // })
-        // .catch(err => console.log(err));
     }
 
     reviewMapper = () => {
@@ -41,8 +35,8 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
             return (
                 <tr key={user}>
                     <td>
-                        <Button onClick={() => this.props.updateSiteReview(campsite)}></Button>
-                        <Button onClick={() => this.deleteReviews(this.props.id)}></Button>
+                        <Button onClick={() => this.props.updateSiteReview(campsite)}>Edit</Button>
+                        <Button onClick={() => this.deleteReviews(this.props.id)}>Delete</Button>
                     </td>
                     <th>{campsite.id}</th>
                     <td>{campsite.siteName}</td>
@@ -53,6 +47,10 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
             )
         })
     }
+    //Look at reactstrap modals
+    //Render component as a button that pops up the modal
+    //Insert component tag(that renders as a button) as the edit button
+
 
     render() {
     return(

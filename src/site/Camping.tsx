@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import CampingCreate from '../components/CampingCreate';
 import DisplayCampingReviews from '../components/DisplayCampingReviews';
-// import UpdateReviews from './updatereviews'
+import EditCampsiteReview from '../components/EditCampsiteReview';
+
 
 type CampingState = {
     campsite: [] 
-    updatedReviews: {} 
+    updatedReviews: {}
 }
 
 type Props = {
  sessionToken: string
  userId: number
+ updateLocalStorage: (newToken:string) => void
+ clearToken: () => void
 }
 
 type CampingInfo = {
@@ -64,16 +67,20 @@ export default class Camping extends Component<Props, CampingState> {
         return(
             <div>
                 <>
-                <CampingCreate sessionToken={this.props.sessionToken}/>
+                <CampingCreate 
+                sessionToken={this.props.sessionToken}
+                fetchCampReview={this.fetchCampReviews}
+                />
                 <DisplayCampingReviews 
                 id={this.props.sessionToken} 
                 sessionToken={this.props.sessionToken}
                 campsite={this.state.campsite}
                 fetchCampReview={this.fetchCampReviews}
                 updateSiteReview={this.updateSiteReview}/>
-                {/* updatedReviews={this.updateSiteReview}
-                deleteReviews={this.deleteReviews}
-                fetchReviews={this.fetchCampReview} */}
+                {/* <EditCampsiteReview 
+                fetchCampReviews={this.fetchCampReviews}
+                sessionToken={this.props.sessionToken} */}
+                {/* /> */}
                 </>
             </div>
         )
