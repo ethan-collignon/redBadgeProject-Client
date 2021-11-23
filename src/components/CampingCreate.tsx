@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 
-type Create = {
+type CampingInfo = {
     siteName: string
     cost: number
     rating: number
@@ -11,10 +11,11 @@ type Create = {
 
 type Props = {
     sessionToken: string
-    campsite: any
+    // fetchCampReview: () => void
+    // campsite: any
 }
 
-export default class CampingCreate extends Component<Props, Create> {
+export default class CampingCreate extends Component<Props, CampingInfo> {
     constructor(props: Props) {
         super(props)
         this.state = {
@@ -28,7 +29,7 @@ export default class CampingCreate extends Component<Props, Create> {
     createReview = (e: any) => {
         e.preventDefault();
         fetch("http://localhost:3000/campsite/create", {
-            method: "Post",
+            method: "POST",
             body: JSON.stringify({ campsite: { siteName: this.state.siteName, cost: this.state.cost, rating: this.state.rating, review: this.state.review } }),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ export default class CampingCreate extends Component<Props, Create> {
                     rating: 0,
                     review: ''
                 });
-                this.props.campsite(data.campsite)
+                // this.props.fetchCampReview();
             })
             .catch(err => console.log(err))
     }

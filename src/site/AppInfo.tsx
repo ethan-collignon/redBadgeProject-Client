@@ -4,7 +4,7 @@ import Auth from './Auth'
 
 type State = {
     sessionToken: string,
-    user: {}
+    user: any
 }
 
 class AppInfo extends Component<{}, State> {
@@ -12,7 +12,7 @@ class AppInfo extends Component<{}, State> {
         super(props)
         this.state = {
             sessionToken: '',
-            user: '',
+            user: {},
         }
         this.updateToken = this.updateToken.bind(this);
         this.setUser = this.setUser.bind(this);
@@ -24,9 +24,10 @@ class AppInfo extends Component<{}, State> {
         this.setState({ sessionToken: newToken })
     }
 
-    setUser(userRole: string) {
-        localStorage.setItem('userRole', userRole)
-        this.setState({ user: userRole })
+    setUser(user: any) {
+        console.log(user)
+        localStorage.setItem('user', JSON.stringify(user))
+        this.setState({ user: user })
     }
 
     clearToken() {
