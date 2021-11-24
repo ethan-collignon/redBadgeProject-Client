@@ -7,6 +7,7 @@ type Props = {
     fetchCampReview: () => void
     updateSiteReview: (campsite: Campsite) => void
     id: string
+    updateOn: () => void
 }
 
 type Campsite = {
@@ -18,7 +19,6 @@ type Campsite = {
 }
 
 export default class DisplayCampingReview extends Component<Props, Campsite> {
-    //I dont think I need a constructor here
     deleteReviews = (id: string) => {
         console.log(id);
         
@@ -37,7 +37,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
             return (
                 <tr key={user}>
                     <td>
-                        <Button onClick={() => this.props.updateSiteReview(campsite)}>Edit</Button>
+                        <Button onClick={() => {this.props.updateSiteReview(campsite); this.props.updateOn()}}>Edit</Button>
                         <Button onClick={() => this.deleteReviews(campsite.id)}>Delete</Button>
                     </td>
                     <th>{campsite.id}</th>
@@ -49,11 +49,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
             )
         })
     }
-    //Look at reactstrap modals
-    //Render component as a button that pops up the modal
-    //Insert component tag(that renders as a button) as the edit button
-
-
+    
     render() {
     return(
         <>

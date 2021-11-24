@@ -6,12 +6,14 @@ import EditCampsiteReview from '../components/EditCampsiteReview';
 
 type CampingState = {
     campsite: []
-    updatedReviews: {  
+    updatedReviews: {
         siteName: string
         cost: number
         rating: number
         review: string
-        id: string}
+        id: string
+    }
+    updateActive: boolean
 }
 
 type Props = {
@@ -34,12 +36,14 @@ export default class Camping extends Component<Props, CampingState> {
         super(props)
         this.state = {
             campsite: [],
+            updateActive: false,
             updatedReviews: {
                 siteName: '',
                 cost: 0,
                 rating: 0,
                 review: '',
-                id: ''
+                id: '',
+
             }
             // this.deleteReviews = this.deleteReviews.bind(this)
         }
@@ -67,6 +71,14 @@ export default class Camping extends Component<Props, CampingState> {
             .catch(err => console.log(err));
     }
 
+    updateOn = () => {
+        this.setState({ updateActive: true })
+    }
+
+    updateOff = () => {
+        this.setState({ updateActive: false })
+    }
+
     render() {
         return (
             <div>
@@ -80,14 +92,16 @@ export default class Camping extends Component<Props, CampingState> {
                         sessionToken={this.props.sessionToken}
                         campsite={this.state.campsite}
                         fetchCampReview={this.fetchCampReviews}
-                        updateSiteReview={this.updateSiteReview} />
-                    {/* <EditCampsiteReview 
-                fetchCampReviews={this.fetchCampReviews}
-                sessionToken={this.props.sessionToken}
-                updateCampsite={this.updateCampsite}/> */}
+                        updateSiteReview={this.updateSiteReview}
+                        updateOn={this.updateOn} />
+                    {this.state.updateActive ?
+                        <EditCampsiteReview
+                            fetchCampReviews={this.fetchCampReviews}
+                            sessionToken={this.props.sessionToken}
+                            updateCampsite={this.state.updatedReviews}
+                            updateOff={this.updateOff} /> : null}
                 </>
             </div>
         )
     }
 }
-

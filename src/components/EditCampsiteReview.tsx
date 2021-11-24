@@ -5,7 +5,7 @@ type Props = {
     sessionToken: string
     updateCampsite: UpdateReview
     fetchCampReviews: () => void
-
+    updateOff: () => void
 }
 
 type UpdateReview = {
@@ -13,7 +13,7 @@ type UpdateReview = {
     cost: number
     rating: number
     review: string
-    id: number
+    id: string
 }
 
 export default class EditCampsiteReview extends Component<Props, UpdateReview> {
@@ -43,21 +43,18 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
             }),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': this.props.sessionToken
+                'Authorization': `Bearer ${this.props.sessionToken}`
             })
         })
             .then(res => res.json())
             .then(data => {
                 this.props.fetchCampReviews()
-                // this.props.updateOff()
+                this.props.updateOff()
             })
     }
 
     render() {
         return (
-            // <div>
-            //     <Button color="danger" onClick={this.updateCampsiteReview}>Edit</Button>
-            // </div>
             <Modal isOpen={true}>
                 <ModalHeader>Edit Review</ModalHeader>
                 <ModalBody>
@@ -87,8 +84,8 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
                             </Label>
                         </FormGroup>
                     </Form>
-                    <Button type='submit'>Submit</Button>
-                    {/* <Button onClick={this.props.updateOff}>Cancel</Button>*/}
+                    <Button onClick={this.updateCampsiteReview} type='submit'>Submit</Button>
+                    <Button onClick={this.props.updateOff}>Cancel</Button>
                 </ModalBody>
             </Modal>
         )
