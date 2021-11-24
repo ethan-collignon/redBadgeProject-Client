@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from './Navbar'
 import Auth from './Auth'
-import Camping from './Camping'
+// import Camping from './Camping'
 
 type State = {
     sessionToken: string,
@@ -39,20 +39,18 @@ class AppInfo extends Component<{}, State> {
     }
 
     landingPage = () => (
-        <Camping sessionToken={this.state.sessionToken} updateLocalStorage={this.updateToken} clearToken={this.clearToken} userId={this.state.userId} />
+        <Navigation userId={this.state.userId} />
     )
 
     viewConductor = () => {
-        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken ={this.updateToken} setUser={this.setUser} />;
-      };
+        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} />;
+    };
 
     render() {
         return (
             <div>
                 <div className="page">
-                    <Navigation userId={this.state.userId}/>
                     {this.viewConductor()}
-                    {/* <Auth updateToken={this.updateToken} setUser={this.setUser} /> */}
                 </div>
             </div>
         );

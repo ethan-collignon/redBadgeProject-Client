@@ -5,7 +5,7 @@ type Props = {
     sessionToken: string
     updateCampsite: UpdateReview
     fetchCampReviews: () => void
-    
+
 }
 
 type UpdateReview = {
@@ -49,13 +49,14 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
             .then(res => res.json())
             .then(data => {
                 this.props.fetchCampReviews()
+                // this.props.updateOff()
             })
     }
 
     render() {
         return (
             // <div>
-            //     <Button color="danger" onClick={this.updateCampsiteReview} </Button>
+            //     <Button color="danger" onClick={this.updateCampsiteReview}>Edit</Button>
             // </div>
             <Modal isOpen={true}>
                 <ModalHeader>Edit Review</ModalHeader>
@@ -87,7 +88,7 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
                         </FormGroup>
                     </Form>
                     <Button type='submit'>Submit</Button>
-                    {/* <Button onClick={this.props.updateOff}>Cancel</Button> Saw this on some code. Think it can work with the issue I had on bb to cancel updates */}
+                    {/* <Button onClick={this.props.updateOff}>Cancel</Button>*/}
                 </ModalBody>
             </Modal>
         )

@@ -54,13 +54,13 @@ class Auth extends Component<Props, Authentication> {
     loginToggle = (e: any) => {
         e.preventDefault();
         this.setState({
-                login: !this.state.login,
-                firstName: '',
-                lastName: '',
-                email: '',
-                password: '',
-                role: 'user',
-                id: 0
+            login: !this.state.login,
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            role: 'user',
+            id: 0
         })
     }
 
