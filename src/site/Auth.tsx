@@ -3,30 +3,42 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 type Authentication = {
+    sessionToken: string,
     firstName: string,
     lastName: string,
     email: string,
     password: string,
     login: boolean,
-    user: {},
-    role: string
+    role: string,
+    id: number
+}
+
+type User = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    password: string,
+    login: boolean,
+    role: string,
+    id: number
 }
 
 type Props = {
     updateToken: (newToken: string) => void
-    setUser: (user: string) => void
+    setUser: (user: User) => void
 }
 
 class Auth extends Component<Props, Authentication> {
     constructor(props: Props) {
         super(props);
         this.state = {
+            sessionToken: localStorage.getItem('token')!,
+            id: 0,
+            login: true,
             firstName: '',
             lastName: '',
             email: '',
             password: '',
-            login: true,
-            user: {},
             role: 'user'
         }
         this.title = this.title.bind(this)
@@ -46,7 +58,9 @@ class Auth extends Component<Props, Authentication> {
             firstName: '',
             lastName: '',
             email: '',
-            password: ''
+            password: '',
+            role: 'user',
+            id: 0
         })
     }
 
@@ -85,10 +99,17 @@ class Auth extends Component<Props, Authentication> {
             .then(data => {
                 console.log(data);
                 this.setState({
-                    user: data
+                    login: data.user.login,
+                    firstName: data.user.firstName,
+                    lastName: data.user.lastName,
+                    email: data.user.email,
+                    password: data.user.password,
+                    role: data.user.role,
+                    id: data.user.id
+
                 });
                 this.props.updateToken(data.sessionToken);
-                // this.props.setUser(data.user.role)
+                this.props.setUser(data.user)
             })
     };
     render() {

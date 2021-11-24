@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Navigation from './Navbar'
 import Auth from './Auth'
+// import Camping from './Camping'
 
 type State = {
     sessionToken: string,
-    user: {}
+    user: any
+    userId: number
 }
 
 class AppInfo extends Component<{}, State> {
@@ -12,7 +14,8 @@ class AppInfo extends Component<{}, State> {
         super(props)
         this.state = {
             sessionToken: '',
-            user: '',
+            user: {},
+            userId: 0,
         }
         this.updateToken = this.updateToken.bind(this);
         this.setUser = this.setUser.bind(this);
@@ -24,21 +27,30 @@ class AppInfo extends Component<{}, State> {
         this.setState({ sessionToken: newToken })
     }
 
-    setUser(userRole: string) {
-        localStorage.setItem('userRole', userRole)
-        this.setState({ user: userRole })
+    setUser(user: any) {
+        console.log(user)
+        localStorage.setItem('user', JSON.stringify(user))
+        this.setState({ user: user })
     }
 
     clearToken() {
         localStorage.clear();
         this.setState({ sessionToken: '' })
     }
+
+    landingPage = () => (
+        <Navigation userId={this.state.userId} />
+    )
+
+    viewConductor = () => {
+        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} />;
+    };
+
     render() {
         return (
             <div>
                 <div className="page">
-                    <Navigation />
-                    <Auth updateToken={this.updateToken} setUser={this.setUser} />
+                    {this.viewConductor()}
                 </div>
             </div>
         );
