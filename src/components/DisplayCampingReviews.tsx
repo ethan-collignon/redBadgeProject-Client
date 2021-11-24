@@ -20,11 +20,13 @@ type Campsite = {
 export default class DisplayCampingReview extends Component<Props, Campsite> {
     //I dont think I need a constructor here
     deleteReviews = (id: string) => {
+        console.log(id);
+        
         fetch(`http://localhost:3000/campsite/delete/${id}`, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': `${this.props.sessionToken}`
+                'Authorization': `Bearer ${this.props.sessionToken}`
             })
         })
             .then(() => this.props.fetchCampReview())
@@ -36,7 +38,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
                 <tr key={user}>
                     <td>
                         <Button onClick={() => this.props.updateSiteReview(campsite)}>Edit</Button>
-                        <Button onClick={() => this.deleteReviews(this.props.id)}>Delete</Button>
+                        <Button onClick={() => this.deleteReviews(campsite.id)}>Delete</Button>
                     </td>
                     <th>{campsite.id}</th>
                     <td>{campsite.siteName}</td>

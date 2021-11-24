@@ -6,7 +6,12 @@ import EditCampsiteReview from '../components/EditCampsiteReview';
 
 type CampingState = {
     campsite: []
-    updatedReviews: {}
+    updatedReviews: {  
+        siteName: string
+        cost: number
+        rating: number
+        review: string
+        id: string}
 }
 
 type Props = {
@@ -71,7 +76,7 @@ export default class Camping extends Component<Props, CampingState> {
                         fetchCampReview={this.fetchCampReviews}
                     />
                     <DisplayCampingReviews
-                        id={this.props.sessionToken}
+                        id={this.state.updatedReviews.id}
                         sessionToken={this.props.sessionToken}
                         campsite={this.state.campsite}
                         fetchCampReview={this.fetchCampReviews}
