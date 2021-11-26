@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Navigation from './Navbar'
 import Auth from './Auth'
-// import Camping from './Camping'
 
 type State = {
     sessionToken: string,
     user: any
     userId: number
 }
+
+// type Props = {
+//     clearToken() => void
+// }
 
 class AppInfo extends Component<{}, State> {
     constructor(props: {}) {

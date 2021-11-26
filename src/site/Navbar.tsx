@@ -5,9 +5,11 @@ import { Button, Navbar, NavItem, } from 'reactstrap';
 import Camping from './Camping';
 import React, { Component } from 'react';
 // import AppInfo from './AppInfo'
-import Eatery from './Eatery'
+import Eatery from './Eatery';
+import Admin from './Admin';
 
-class Navigation extends React.Component<any, any> {
+
+class Navigation extends Component<any, any> {
     constructor(props: any) {
         super(props)
         this.state = {
@@ -15,6 +17,7 @@ class Navigation extends React.Component<any, any> {
             user: JSON.parse(localStorage.getItem('user')!)
         }
     }
+
     render() {
         return (
             <>
@@ -40,7 +43,7 @@ class Navigation extends React.Component<any, any> {
                                     </NavItem>
                                     <NavItem>
                                         <li>
-                                            {/* <Link to='/Admin'>Admin</Link> */}
+                                            <Link to='/Admin'>Admin</Link>
                                         </li>
                                     </NavItem>
                                     <NavItem>
@@ -58,8 +61,8 @@ class Navigation extends React.Component<any, any> {
                                 </Route>
                                 <Route path='eatery' element={<Eatery sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
                                 </Route>
-                                {/* <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
-                                </Route> */}
+                                <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} role={this.state.role}/>} >
+                                </Route>
                             </Routes>
                         </div>
                     </Router>
