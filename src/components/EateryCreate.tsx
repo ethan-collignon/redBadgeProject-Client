@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-
-type CampingInfo = {
-    siteName: string
+type EateryInfo = {
+    eateryName: string
     cost: number
     rating: number
     review: string
@@ -11,56 +10,52 @@ type CampingInfo = {
 
 type Props = {
     sessionToken: string
-     fetchCampReview: () => void
+    fetchEateryReview: () => void
     // campsite: any
 }
 
-export default class CampingCreate extends Component<Props, CampingInfo> {
+export default class EateryCreate extends Component<Props, EateryInfo> {
     constructor(props: Props) {
         super(props)
         this.state = {
-            siteName: '',
+            eateryName: '',
             cost: 0,
             rating: 0,
             review: ''
         }
     }
 
-    createReview = (e: any) => {
+    createEateryReview = (e: any) => {
         e.preventDefault();
-        // console.log("functionHit");
-        // console.log("state: ", this.state);
-        // console.log("props:", this.props)
-        
-        fetch("http://localhost:3000/campsite/create", {
+        fetch("http://localhost:3000/eatery/create", {
             method: "POST",
-            body: JSON.stringify({ campsite: { siteName: this.state.siteName, cost: this.state.cost, rating: this.state.rating, review: this.state.review }}),
+            body: JSON.stringify({ eatery: { eateryName: this.state.eateryName, cost: this.state.cost, rating: this.state.rating, review: this.state.review }}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.props.sessionToken}`
             })
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                this.setState({
-                    siteName: '',
-                    cost: 0,
-                    rating: 0,
-                    review: ''
-                });
-                 this.props.fetchCampReview();
-            })
-            .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.setState({
+                eateryName: '',
+                cost: 0,
+                rating: 0,
+                review: ''
+            });
+            this.props.fetchEateryReview();
+        })
+        .catch(err => console.log(err))
     }
 
-    render() {
+    render(){
         return (
             <div>
-            <Form>
+                <Form>
                 <FormGroup>
-                    <Label htmlFor='campsiteName'>
-                        <Input placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({siteName: String (e.target.value)})}>
+                    <Label htmlFor='eateryName'>
+                        <Input placeholder='Eatery Name' name='eateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({eateryName: String (e.target.value)})}>
                         </Input>
                     </Label>
                 </FormGroup>
@@ -83,9 +78,8 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     </Label>
                 </FormGroup>
             </Form>
-            <Button onClick={(e) => {this.createReview(e)}} type='submit'>Submit</Button>
+            <Button onClick={(e) => {this.createEateryReview(e)}} type='submit'>Submit</Button>
             </div>
         )
     }
-}
-
+ }

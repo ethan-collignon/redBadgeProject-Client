@@ -5,6 +5,7 @@ import { Button, Navbar, NavItem, } from 'reactstrap';
 import Camping from './Camping';
 import React, { Component } from 'react';
 // import AppInfo from './AppInfo'
+import Eatery from './Eatery'
 
 class Navigation extends React.Component<any, any> {
     constructor(props: any) {
@@ -34,7 +35,7 @@ class Navigation extends React.Component<any, any> {
                                     </NavItem>
                                     <NavItem>
                                         <li>
-                                            {/* <Link to='/Eatery'>Eateries</Link> */}
+                                            <Link to='/Eatery'>Eateries</Link>
                                         </li>
                                     </NavItem>
                                     <NavItem>
@@ -55,12 +56,10 @@ class Navigation extends React.Component<any, any> {
                                 </Route>
                                 <Route path='camping' element={<Camping sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
                                 </Route>
-                                {/* <Route path='/Eatery'>
-                            <Eatery sessionToken={this.state.sessionToken} userId={this.state.user.id}/>
-                        </Route> */}
-                                {/* <Route path='/Admin'>
-                            <Admin sessionToken={this.state.sessionToken} userId={this.state.user.id}/>
-                        </Route> */}
+                                <Route path='eatery' element={<Eatery sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
+                                </Route>
+                                {/* <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
+                                </Route> */}
                             </Routes>
                         </div>
                     </Router>
