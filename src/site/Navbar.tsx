@@ -6,7 +6,6 @@ import Camping from './Camping';
 import React, { Component } from 'react';
 // import AppInfo from './AppInfo'
 
-
 class Navigation extends React.Component<any, any> {
     constructor(props: any) {
         super(props)
@@ -23,7 +22,7 @@ class Navigation extends React.Component<any, any> {
                         <div>
                             <nav>
                                 <ul>
-                                    <NavItem>
+                                    <NavItem> 
                                         <li>
                                             <Link to='/'></Link>
                                         </li>
