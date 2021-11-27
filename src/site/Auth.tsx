@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Input } from "reactstrap";
+import "./auth.css";
 
 type Authentication = {
     sessionToken: string,
@@ -107,7 +108,6 @@ class Auth extends Component<Props, Authentication> {
                     password: data.user.password,
                     role: data.user.role,
                     id: data.user.id
-
                 });
                 this.props.updateToken(data.sessionToken);
                 this.props.setUser(data.user);
@@ -119,44 +119,45 @@ class Auth extends Component<Props, Authentication> {
             <div>
                 {this.state.login ?
                     (
-                        <div>
-                            <Form>
+                        <div className="login-form">
+                            <Form >
                                 <h1>{this.title()}</h1>
+                                <br />
                                 <FormGroup>
-                                    <Label>Email</Label>
-                                    <Input onChange={(e) => this.setState({ email: e.target.value })} type="text" id="email" value={this.state.email}></Input>
+                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="text" id="email" value={this.state.email}></Input>
                                 </FormGroup>
+                                <br />
                                 <FormGroup>
-                                    <Label>Password</Label>
-                                    <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
                                 </FormGroup>
+                                <br />
                                 <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                                <br />
                                 <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>New User? Click here to create an account.</u></b></p>
                             </Form>
                         </div>
                     ) : (
-                        <Form className="login-form">
-                            <h1>{this.title()}</h1>
-                            <FormGroup>
-                                <Label>First Name</Label>
-                                <Input onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label>Last Name</Label>
-                                <Input onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label>Email</Label>
-                                <Input onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
-                            </FormGroup>
-                            <FormGroup>
-                                <Label>Password</Label>
-                                <Input onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
-                            </FormGroup>
-
-                            <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
-                            <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
-                        </Form>
+                        <div className="signup-form">
+                            <Form >
+                                <h1>{this.title()}</h1>
+                                <br />
+                                <FormGroup>
+                                    <Input placeholder='First Name' onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Input placeholder='Last Name' onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
+                                </FormGroup>
+                                <FormGroup>
+                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                                </FormGroup>
+                                <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                                <br />
+                                <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
+                            </Form>
+                        </div>
                     )}
             </div>
         )
