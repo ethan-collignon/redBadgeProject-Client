@@ -23,7 +23,7 @@ type Props = {
     clearToken: () => void
 }
 
-type EateryInfo = {
+interface EateryInfo {
     eateryName: string
     cost: number
     rating: number

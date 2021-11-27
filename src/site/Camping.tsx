@@ -24,7 +24,7 @@ type Props = {
     clearToken: () => void
 }
 
-type CampingInfo = {
+interface CampingInfo  {
     siteName: string
     cost: number
     rating: number
@@ -85,12 +85,13 @@ export default class Camping extends Component<Props, CampingState> {
             <div>
                 <>
                 <h3>Title</h3>
-                    <Container style={{backgroundColor: "green", borderRadius: "2px", justifyContent: "center", padding: "150px, 150px, 150px, 150px"}}>
-                    
+                    <Container>
+                    <div className="campingCreate">
                         <CampingCreate
                             sessionToken={this.props.sessionToken}
                             fetchCampReview={this.fetchCampReviews}/>
-                            <br />
+                            </div>
+                            <div>
                         <DisplayCampingReviews
                             id={this.state.updatedReviews.id}
                             sessionToken={this.props.sessionToken}
@@ -104,6 +105,7 @@ export default class Camping extends Component<Props, CampingState> {
                                 sessionToken={this.props.sessionToken}
                                 updateCampsite={this.state.updatedReviews}
                                 updateOff={this.updateOff} /> : null}
+                                </div>
                     </Container>
                 </>
             </div>

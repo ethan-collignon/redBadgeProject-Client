@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 import "./auth.css";
 
-type Authentication = {
+interface Authentication  {
     sessionToken: string,
     firstName: string,
     lastName: string,
@@ -14,7 +14,7 @@ type Authentication = {
     id: number
 }
 
-type User = {
+interface User  {
     firstName: string,
     lastName: string,
     email: string,

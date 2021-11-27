@@ -6,7 +6,7 @@ type Props = {
     deleteUsers: (id: string) => void
 }
 
-type UserState = {
+interface UserState  {
     firstName: string
     lastName: string
     email: string

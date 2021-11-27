@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Navigation from './Navbar'
-import Auth from './Auth'
+import Navigation from './Navbar';
+import Auth from './Auth';
+import {Route, Navigate} from "react-router-dom"
+
 
 type State = {
     sessionToken: string,
@@ -8,10 +10,6 @@ type State = {
     userId: number
     role: string
 }
-
-// type Props = {
-//     clearToken() => void
-// }
 
 class AppInfo extends Component<{}, State> {
     constructor(props: {}) {
@@ -45,7 +43,8 @@ class AppInfo extends Component<{}, State> {
 
     clearToken() {
         localStorage.clear();
-        this.setState({ sessionToken: '', role: '' })
+        this.setState({ sessionToken: '', role: '' });
+        window.location.href = '/'
     }
 
     landingPage = () => (

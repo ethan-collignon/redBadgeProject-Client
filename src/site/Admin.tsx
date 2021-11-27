@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import {Button} from 'reactstrap';
 import DisplayUsers from '../components/DisplayUsers'
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
     role: string
 }
 
-type AdminState = {
+interface AdminState  {
     users: []
     // userOn: boolean
 }

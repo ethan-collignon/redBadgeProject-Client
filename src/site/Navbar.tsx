@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route, Routes, Navigate} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Navbar, NavItem, } from 'reactstrap';
 import Camping from './Camping';
@@ -13,16 +13,21 @@ type Props = {
     updateToken: (newToken: string) => void
 }
 
+
 class Navigation extends Component<Props, any> {
     constructor(props: any) {
         super(props)
         this.state = {
             sessionToken: localStorage.getItem("token"),
-            user: JSON.parse(localStorage.getItem('user')!)
+            user: JSON.parse(localStorage.getItem('user')!),
+            redirect: false
         }
     }
 
     render() {
+        if (this.state.redirect){
+            return <Navigate to={this.state.redirect} />
+        }
         return (
             <>
                 <Navbar>
@@ -37,6 +42,9 @@ class Navigation extends Component<Props, any> {
                                 </NavItem>
                                 <NavItem>
                                     <Link to='/Eatery'>Eateries</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link to='/https://www.mountainproject.com'>Mountain Project</Link>
                                 </NavItem>
                                 {this.props.role === 'admin' ?
                                     <NavItem>
@@ -56,6 +64,8 @@ class Navigation extends Component<Props, any> {
                                 <Route path='camping' element={<Camping sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
                                 </Route>
                                 <Route path='eatery' element={<Eatery sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
+                                </Route>
+                                <Route path='MP' element={<Navigate to ="https://www.mountainproject.com/" />}>
                                 </Route>
                                 <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} role={this.state.role} />} >
                                 </Route>

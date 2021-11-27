@@ -8,7 +8,7 @@ type Props = {
     updateOff: () => void
 }
 
-type UpdateReview = {
+interface UpdateReview  {
     eateryName: string
     cost: number
     rating: number

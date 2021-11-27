@@ -10,7 +10,7 @@ type Props = {
     updateOn: () => void
 }
 
-type Campsite = {
+interface Campsite  {
     siteName: string
     review: string
     cost: number
@@ -60,7 +60,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
         return (
             <div className="campReviews">
                 <>
-                    <Table striped hover variant="dark">
+                    <Table striped hover variant="light" style={{padding: "25px 25px 25px 25px", backgroundColor: "green", borderRadius: "5px"}}>
                         <thead>
                             <tr>
                                 <th>Edit</th>
