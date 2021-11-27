@@ -53,24 +53,23 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
     render() {
         return (
             <div>
-                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "green", borderRadius: "5px" }}>
+                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "green", borderRadius: "10px" }}>
                     <FormGroup>
                         <Label htmlFor='campsiteName'>
-                            <Input placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>
                     <FormGroup>
-                        <Label htmlFor='cost'>Cost</Label>
-                        <Input style={{borderRadius: "5px"}} placeholder='Cost/ Night' name='cost' type='select' value={this.state.cost} onChange={(e) => this.setState({ cost: String(e.target.value) })}>
+                        <Label style={{paddingRight: "7px", fontSize: "24px"}} htmlFor='cost'>Cost</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', fontSize: "20px"}} placeholder='Cost/ Night' name='cost' type='select' value={this.state.cost} onChange={(e) => this.setState({ cost: String(e.target.value) })}>
                             <option>$</option>
                             <option>$$</option>
                             <option>$$$</option>
                             <option>$$$$</option>
                         </Input>
-                        {/* <br /> */}
-                        <Label htmlFor='rating'>Rating</Label>
-                        <Input style={{borderRadius: "5px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
+                        <Label style={{paddingLeft: "150px",paddingRight: "7px", fontSize: "24px"}} htmlFor='rating'>Rating</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', paddingLeft: "10px", fontSize: "20px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -80,11 +79,11 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor='Review'>
-                            <Input placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '400px', height: '200px'}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>
-                    <Button onClick={(e) => { this.createReview(e) }} type='submit'>Submit</Button>
+                    <Button className="btn-lg btn-dark btn-block" onClick={(e) => { this.createReview(e) }} type='submit'>Submit</Button>
                 </Form>
 
             </div>

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Link, Route, Routes, Navigate} from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
-import { Button, Navbar, NavItem, } from 'reactstrap';
+import { Button, Navbar, NavItem, Nav } from 'reactstrap';
 import Camping from './Camping';
 import React, { Component } from 'react';
 import Eatery from './Eatery';
@@ -33,7 +33,7 @@ class Navigation extends Component<Props, any> {
                 <Navbar>
                     <Router>
                         <div>
-                            <nav>
+                            <Nav>
                                 <NavItem>
                                     <Link to='/Home'></Link>
                                 </NavItem>
@@ -57,7 +57,7 @@ class Navigation extends Component<Props, any> {
                                         <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
                                     </svg></Button>
                                 </NavItem>
-                            </nav>
+                            </Nav>
                             <Routes>
                                 <Route path='/' element={<Camping sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
                                 </Route>

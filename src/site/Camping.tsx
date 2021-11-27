@@ -84,10 +84,10 @@ export default class Camping extends Component<Props, CampingState> {
         return (
             <div>
                 <>
-                <h3>Title</h3>
+                <h3>Campsite Review</h3>
                     <Container>
                     <div className="campingCreate">
-                        <CampingCreate
+                        <CampingCreate 
                             sessionToken={this.props.sessionToken}
                             fetchCampReview={this.fetchCampReviews}/>
                             </div>
