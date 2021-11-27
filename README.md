@@ -1,46 +1,17 @@
-# Getting Started with Create React App
+#H1 Crag, Grub and Camp-Server (ElevenFifty RedBadge Final Project)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This README is for the client side only for our final ElevenFifty Academy project. The larger grand project is designed to put most of everything we have learned in this course as well as coding this project in Typescript and use Class Components only. 
 
-## Available Scripts
+My project idea is to create an application for rock climbers that can be used in conjunction with the popular Mountain Project app. MP is a user content created app and is the main tool climbers use to record specific climbs, get directions to those climbs and has very rough information surrounding climbing adjacent activities like lodging and food. 
 
-In the project directory, you can run:
+With my project I am expanding on those adjacent items by creating a user content created app that records, reviews, rates and gives cost information to campsites and eateries near climbing areas. 
 
-### `npm start`
+This file specifically builds the client facing side. Users can utilize forms, buttons, routes and navigation to signup or register an account and then leave reviews of their favorite campsites or eateries near where they climbed. All of this forms and buttons link to the previously built server to store and retrieve the information. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Building this file was very challenging in that we were required to only use Typescript. We were required to build a corresponding client side to the three tables and CRUD functionality that was set in the server.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We also were required to use form validation, pass props, use of setState and react patterns. Many of these were implemented as bi-products of usual use of Class components or React. The form validation was a newer concept that I did need to research and implement.........
 
-### `npm test`
+One aspect of this project that I did need to do extra learning for was the access controls. The Client side of this aspect proved a lot more challenging than the server side. To accomplish this I had to .......
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Overall I felt the client side was extremely difficult and challenging. I had to really dig deep within myself and keep pushing to find resources or get instructor help to solve some of my blocks. In the end, I do feel I have a better understanding for Typescript and Class components.  

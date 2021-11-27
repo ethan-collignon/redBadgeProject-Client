@@ -20,7 +20,7 @@ type User = {
     password: string,
     login: boolean,
     role: string,
-    id: number
+    id: number,
 }
 
 type Props = {
