@@ -1,13 +1,19 @@
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Navbar, NavItem, } from 'reactstrap';
-// import Auth from './Auth';
 import Camping from './Camping';
 import React, { Component } from 'react';
-// import AppInfo from './AppInfo'
-import Eatery from './Eatery'
+import Eatery from './Eatery';
+import Admin from './Admin';
 
-class Navigation extends React.Component<any, any> {
+type Props = {
+    role: string
+    userId: number
+    clearToken: () => void
+    updateToken: (newToken: string) => void
+}
+
+class Navigation extends Component<Props, any> {
     constructor(props: any) {
         super(props)
         this.state = {
@@ -15,6 +21,7 @@ class Navigation extends React.Component<any, any> {
             user: JSON.parse(localStorage.getItem('user')!)
         }
     }
+
     render() {
         return (
             <>
@@ -22,34 +29,23 @@ class Navigation extends React.Component<any, any> {
                     <Router>
                         <div>
                             <nav>
-                                <ul>
                                     <NavItem> 
-                                        <li>
-                                            <Link to='/'></Link>
-                                        </li>
+                                            <Link to='/Home'></Link> 
                                     </NavItem>
-                                    <NavItem>
-                                        <li>
-                                            <Link to='/Camping'>Campsites</Link>
-                                        </li>
+                                    <NavItem>              
+                                            <Link to='/Camping'>Campsites</Link>                     
                                     </NavItem>
-                                    <NavItem>
-                                        <li>
-                                            <Link to='/Eatery'>Eateries</Link>
-                                        </li>
+                                    <NavItem>                          
+                                            <Link to='/Eatery'>Eateries</Link>                               
                                     </NavItem>
-                                    <NavItem>
-                                        <li>
-                                            {/* <Link to='/Admin'>Admin</Link> */}
-                                        </li>
-                                    </NavItem>
-                                    <NavItem>
-                                        <li>
-                                            <Button onClick={() => this.props.clearToken()}>Logout</Button>
-                                            {/* Button not working */}
-                                        </li>
-                                    </NavItem>
-                                </ul>
+                                    {this.props.role === 'admin' ? 
+                                    <NavItem>                           
+                                            <Link to='/Admin'>Admin</Link>                           
+                                    </NavItem> : null
+                                     }
+                                    <NavItem>                             
+                                            <Button onClick={() => this.props.clearToken()}>Logout</Button>                              
+                                    </NavItem>                    
                             </nav>
                             <Routes>
                                 <Route path='/' element={<Camping sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
@@ -58,8 +54,8 @@ class Navigation extends React.Component<any, any> {
                                 </Route>
                                 <Route path='eatery' element={<Eatery sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
                                 </Route>
-                                {/* <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} updateLocalStorage={this.props.updateToken} clearToken={this.props.clearToken} userId={this.props.userId} />} >
-                                </Route> */}
+                                <Route path='admin' element={<Admin sessionToken={this.state.sessionToken} role={this.state.role}/>} >
+                                </Route>
                             </Routes>
                         </div>
                     </Router>

@@ -20,12 +20,13 @@ type User = {
     password: string,
     login: boolean,
     role: string,
-    id: number
+    id: number,
 }
 
 type Props = {
     updateToken: (newToken: string) => void
     setUser: (user: User) => void
+    updateRole: (role: string) => void
 }
 
 class Auth extends Component<Props, Authentication> {
@@ -109,7 +110,8 @@ class Auth extends Component<Props, Authentication> {
 
                 });
                 this.props.updateToken(data.sessionToken);
-                this.props.setUser(data.user)
+                this.props.setUser(data.user);
+                this.props.updateRole(data.user.role)
             })
     };
     render() {
