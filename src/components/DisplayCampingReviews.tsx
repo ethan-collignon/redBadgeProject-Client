@@ -60,7 +60,6 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
         return (
             <div className="campReviews">
                 <>
-                    <h3>Title</h3>
                     <Table striped hover variant="dark">
                         <thead>
                             <tr>

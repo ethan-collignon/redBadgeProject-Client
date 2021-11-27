@@ -56,8 +56,8 @@ export default class DisplayEateryReviews extends Component<Props, Eatery> {
 
     render() {
         return (
+            <div className="eateryReviews">
             <>
-                <h3>Title</h3>
                 <Table striped hover variant="dark">
                     <thead>
                         <tr>
@@ -74,6 +74,7 @@ export default class DisplayEateryReviews extends Component<Props, Eatery> {
                     </tbody>
                 </Table>
             </>
+            </div>
         )
     }
 }
