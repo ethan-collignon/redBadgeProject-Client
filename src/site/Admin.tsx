@@ -21,6 +21,10 @@ export default class Admin extends Component<Props, AdminState> {
         }
     }
 
+    componentDidMount = () => {
+        this.fetchAllUsers();
+    }
+
     fetchAllUsers = () => {
         fetch(`http://localhost:3000/user/getUsers`,{
             method: "GET",
@@ -40,7 +44,7 @@ export default class Admin extends Component<Props, AdminState> {
     }
 
     deleteUsers = (id: string) => {
-        fetch(`http://localhost:3000/user/delete/:UserId`, {
+        fetch(`http://localhost:3000/user/delete/${id}`, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json',
