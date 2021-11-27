@@ -83,6 +83,7 @@ export default class Camping extends Component<Props, CampingState> {
         return (
             <div>
                 <>
+                
                     <CampingCreate
                         sessionToken={this.props.sessionToken}
                         fetchCampReview={this.fetchCampReviews}
