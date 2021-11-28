@@ -12,7 +12,6 @@ interface CampingInfo {
 type Props = {
     sessionToken: string
     fetchCampReview: () => void
-    // campsite: any
 }
 
 export default class CampingCreate extends Component<Props, CampingInfo> {
@@ -53,7 +52,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
     render() {
         return (
             <div>
-                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px" }}>
+                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px", boxShadow: '10px 10px 10px black' }}>
                     <FormGroup>
                         <Label htmlFor='campsiteName'>
                             <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>

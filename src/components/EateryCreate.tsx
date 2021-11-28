@@ -11,7 +11,6 @@ interface EateryInfo  {
 type Props = {
     sessionToken: string
     fetchEateryReview: () => void
-    // campsite: any
 }
 
 export default class EateryCreate extends Component<Props, EateryInfo> {
@@ -52,24 +51,23 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
     render(){
         return (
             <div>
-                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "01730A", borderRadius: "5px" }}>
+                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px", boxShadow: '10px 10px 10px black' }}>
                 <FormGroup>
                     <Label htmlFor='eateryName'>
-                        <Input placeholder='Eatery Name' name='eateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({eateryName: String (e.target.value)})}>
+                        <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px"}} placeholder='Eatery Name' name='eateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({eateryName: String (e.target.value)})}>
                         </Input>
                     </Label>
                 </FormGroup>
                 <FormGroup>
-                        <Label htmlFor='cost'>Cost</Label>
-                        <Input style={{borderRadius: "5px"}} placeholder='Cost/ Night' name='cost' type='select' value={this.state.cost} onChange={(e) => this.setState({ cost: String(e.target.value) })}>
+                        <Label style={{paddingRight: "7px", fontSize: "24px"}} htmlFor='cost'>Cost</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', fontSize: "20px"}} placeholder='Cost/ Night' name='cost' type='select' value={this.state.cost} onChange={(e) => this.setState({ cost: String(e.target.value) })}>
                             <option>$</option>
                             <option>$$</option>
                             <option>$$$</option>
                             <option>$$$$</option>
                         </Input>
-                        {/* <br /> */}
-                        <Label htmlFor='rating'>Rating</Label>
-                        <Input style={{borderRadius: "5px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
+                        <Label style={{paddingLeft: "75px",paddingRight: "7px", fontSize: "24px"}} htmlFor='rating'>Rating</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', paddingLeft: "10px", fontSize: "20px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -79,12 +77,13 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor='Review'>
-                            <Input placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '300px', height: '200px'}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>
+                    <Button className="btn-lg btn-dark btn-block" onClick={(e) => {this.createEateryReview(e)}} type='submit'>Submit</Button>
             </Form>
-            <Button onClick={(e) => {this.createEateryReview(e)}} type='submit'>Submit</Button>
+            
             </div>
         )
     }

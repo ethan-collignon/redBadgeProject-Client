@@ -68,7 +68,7 @@ class Auth extends Component<Props, Authentication> {
 
     handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(this.state.firstName);
+        // console.log(this.state.firstName);
 
         let reqBody = this.state.login ?
             {

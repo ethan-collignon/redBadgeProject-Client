@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from './Navbar';
 import Auth from './Auth';
-import {Route, Navigate} from "react-router-dom"
+// import {Route, Navigate} from "react-router-dom"
 
 
 type State = {
