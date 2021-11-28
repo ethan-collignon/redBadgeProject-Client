@@ -53,7 +53,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
     render() {
         return (
             <div>
-                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "green", borderRadius: "10px" }}>
+                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px" }}>
                     <FormGroup>
                         <Label htmlFor='campsiteName'>
                             <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>
@@ -68,7 +68,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                             <option>$$$</option>
                             <option>$$$$</option>
                         </Input>
-                        <Label style={{paddingLeft: "150px",paddingRight: "7px", fontSize: "24px"}} htmlFor='rating'>Rating</Label>
+                        <Label style={{paddingLeft: "75px",paddingRight: "7px", fontSize: "24px"}} htmlFor='rating'>Rating</Label>
                         <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', paddingLeft: "10px", fontSize: "20px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
                             <option>1</option>
                             <option>2</option>
@@ -79,7 +79,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor='Review'>
-                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '400px', height: '200px'}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '300px', height: '200px'}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>

@@ -9,7 +9,7 @@ type CampingState = {
     campsite: []
     updatedReviews: {
         siteName: string
-        cost: number
+        cost: string
         rating: number
         review: string
         id: string
@@ -26,7 +26,7 @@ type Props = {
 
 interface CampingInfo  {
     siteName: string
-    cost: number
+    cost: string
     rating: number
     review: string
     id: string
@@ -40,13 +40,12 @@ export default class Camping extends Component<Props, CampingState> {
             updateActive: false,
             updatedReviews: {
                 siteName: '',
-                cost: 0,
+                cost: '',
                 rating: 0,
                 review: '',
                 id: '',
 
             }
-            // this.deleteReviews = this.deleteReviews.bind(this)
         }
     }
 
@@ -82,11 +81,11 @@ export default class Camping extends Component<Props, CampingState> {
 
     render() {
         return (
-            <div>
+            <div style={{paddingTop: '25px'}}>
                 <>
                 <h3>Campsite Review</h3>
-                    <Container>
-                    <div className="campingCreate">
+                    <Container style={{paddingTop: '15px'}}>
+                    <div style={{paddingRight: '90px'}}>
                         <CampingCreate 
                             sessionToken={this.props.sessionToken}
                             fetchCampReview={this.fetchCampReviews}/>

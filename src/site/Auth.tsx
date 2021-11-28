@@ -116,11 +116,11 @@ class Auth extends Component<Props, Authentication> {
     };
     render() {
         return (
-            <div>
+            <div style={{paddingTop: '75px'}}>
                 {this.state.login ?
                     (
                         <div className="login-form">
-                            <Form >
+                            <Form>
                                 <h1>{this.title()}</h1>
                                 <br />
                                 <FormGroup>

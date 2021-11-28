@@ -2,21 +2,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 10px;
     background-color: rgb(167, 167, 167);
-    padding-bottom: 300px;
+    padding-bottom: 150px;
 }
 
 .login-form {
     border: 3px solid black;
     border-radius: 5%;
-    padding: 75px 75px 75px 75px;
-    background-color: rgb(2, 118, 2);
+    padding: 75px 90px 75px 90px;
+    background-color: #01730A;
 }
 
 .signup-form {
     border: 3px solid black;
     border-radius: 5%;
-    padding: 55px 110px 55px 110px;
-    background-color: rgb(2, 118, 2);
+    padding: 45px 125px 45px 125px;
+    background-color: #01730A;
 }
