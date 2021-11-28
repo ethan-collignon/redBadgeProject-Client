@@ -59,6 +59,7 @@ export default class Admin extends Component<Props, AdminState> {
         return(
             <div>
                 <>
+                <h2 style={{paddingTop: '30px', paddingBottom: '25px'}}>User Data</h2>
                     <DisplayUsers users={this.state.users} deleteUsers={this.deleteUsers}/>
                 </>
             </div>

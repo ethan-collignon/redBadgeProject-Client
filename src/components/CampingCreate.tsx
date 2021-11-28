@@ -55,7 +55,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                 <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px", boxShadow: '10px 10px 10px black' }}>
                     <FormGroup>
                         <Label htmlFor='campsiteName'>
-                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px", boxShadow: "2px 2px 3px black"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>
@@ -78,7 +78,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
                     </FormGroup>
                     <FormGroup>
                         <Label htmlFor='Review'>
-                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '300px', height: '200px'}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '300px', height: '200px', boxShadow: "2px 2px 3px black"}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
                             </Input>
                         </Label>
                     </FormGroup>

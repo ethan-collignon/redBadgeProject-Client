@@ -124,7 +124,7 @@ class Auth extends Component<Props, Authentication> {
                                 <h1>{this.title()}</h1>
                                 <br />
                                 <FormGroup>
-                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="text" id="email" value={this.state.email}></Input>
+                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
                                 </FormGroup>
                                 <br />
                                 <FormGroup>

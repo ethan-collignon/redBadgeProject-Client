@@ -4,7 +4,7 @@
     justify-content: center;
     padding-top: 10px;
     background-color: rgb(167, 167, 167);
-    padding-bottom: 150px;
+    padding-bottom: 350px;
 }
 
 .login-form {
@@ -19,4 +19,16 @@
     border-radius: 5%;
     padding: 45px 125px 45px 125px;
     background-color: #01730A;
+}
+
+input[type=text]:focus {
+    background-color: rgb(168, 213, 153);
+}
+
+input[type=password]:focus {
+    background-color: rgb(168, 213, 153);
+}
+
+input[type=email]:focus {
+    background-color: rgb(168, 213, 153);
 }
