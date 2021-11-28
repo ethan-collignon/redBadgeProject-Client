@@ -85,7 +85,7 @@ export default class Camping extends Component<Props, CampingState> {
                 <>
                 <h3>Campsite Review</h3>
                     <Container style={{paddingTop: '15px'}}>
-                    <div style={{paddingRight: '90px'}}>
+                    <div style={{paddingRight: '40px'}}>
                         <CampingCreate 
                             sessionToken={this.props.sessionToken}
                             fetchCampReview={this.fetchCampReviews}/>

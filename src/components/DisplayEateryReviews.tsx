@@ -58,7 +58,7 @@ export default class DisplayEateryReviews extends Component<Props, Eatery> {
         return (
             <div className="eateryReviews">
             <>
-                <Table responsive striped hover variant="light" style={{padding: "25px 25px 25px 25px", backgroundColor: "#43A84B", borderRadius: "10px", width: '200px', 'whiteSpace': 'unset'}}>
+                <Table responsive striped hover variant="light" style={{padding: "25px 25px 25px 25px", backgroundColor: "#028261 ", borderRadius: "10px", width: '200px', 'whiteSpace': 'unset'}}>
                     <thead>
                         <tr>
                             <th>Edit</th>

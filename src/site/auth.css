@@ -5,30 +5,35 @@
     padding-top: 10px;
     background-color: rgb(167, 167, 167);
     padding-bottom: 350px;
+    /* background-size: 100% */
+}
+
+p{
+    text-shadow: .1px .2px .2px honeydew;
 }
 
 .login-form {
     border: 3px solid black;
     border-radius: 5%;
     padding: 75px 90px 75px 90px;
-    background-color: #01730A;
+    background-color: #1169A2  ;
 }
 
 .signup-form {
     border: 3px solid black;
     border-radius: 5%;
     padding: 45px 125px 45px 125px;
-    background-color: #01730A;
+    background-color: #1169A2  ;
 }
 
 input[type=text]:focus {
-    background-color: rgb(168, 213, 153);
+    background-color: rgb(189, 241, 252);
 }
 
 input[type=password]:focus {
-    background-color: rgb(168, 213, 153);
+    background-color: rgb(189, 241, 252);
 }
 
 input[type=email]:focus {
-    background-color: rgb(168, 213, 153);
+    background-color: rgb(189, 241, 252);
 }

@@ -83,7 +83,7 @@ export default class Eatery extends Component<Props, EateryState> {
                 <>
                     <h3>Eatery Review</h3>
                     <Container style={{ paddingTop: '15px' }}>
-                        <div style={{ paddingRight: '90px' }}>
+                        <div style={{ paddingRight: '40px' }}>
                             <DisplayEateryReviews
                                 id={this.state.updatedEateryReviews.id}
                                 sessionToken={this.props.sessionToken}

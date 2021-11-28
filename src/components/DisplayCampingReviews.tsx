@@ -62,7 +62,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
         return (
             <div className="campReviews">
                 <>
-                    <Table responsive striped hover variant="light" style={{padding: "25px 25px 25px 25px", backgroundColor: "#43A84B", borderRadius: "10px", width: '200px', 'whiteSpace': 'unset'}}>
+                    <Table responsive striped hover variant="light" style={{padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px", width: '200px', 'whiteSpace': 'unset'}}>
                         <thead>
                             <tr>
                                 <th>Edit</th>
