@@ -42,8 +42,8 @@ class Navigation extends Component<Props, any> {
                                 <NavItem>
                                     <Link style={{paddingRight: '20px', color: '#BDBCBC'}} to='/Eatery'>Eateries</Link>
                                 </NavItem>
-                                <NavItem className="nav-link disabled">
-                                    <Link style={{paddingRight: '0px', color: '#BDBCBC'}} to='/https://www.mountainproject.com'>Mountain Project</Link>
+                                <NavItem>
+                                    <a style={{paddingRight: '8px', color: '#BDBCBC'}} target="_blank" href="https://www.mountainproject.com">Mountain Project</a> 
                                 </NavItem>
                                 {this.props.role === 'admin' ?
                                     <NavItem >
