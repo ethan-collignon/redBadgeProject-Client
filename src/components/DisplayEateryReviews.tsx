@@ -64,7 +64,7 @@ export default class DisplayEateryReviews extends Component<Props, Eatery> {
                             <th>Edit</th>
                             <th>#</th>
                             <th>Eatery Name</th>
-                            <th>Cost/Night</th>
+                            <th>Cost</th>
                             <th>Rating</th>
                             <th>Review Entry</th>
                         </tr>

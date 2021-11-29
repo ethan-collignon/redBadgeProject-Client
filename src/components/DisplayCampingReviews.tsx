@@ -68,7 +68,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
                                 <th>Edit</th>
                                 <th>#</th>
                                 <th>Campsite Name</th>
-                                <th>Cost/Night</th>
+                                <th>Cost</th>
                                 <th>Rating</th>
                                 <th>Review Entry</th>
                             </tr>

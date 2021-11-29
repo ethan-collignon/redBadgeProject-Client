@@ -118,40 +118,40 @@ class Auth extends Component<Props, Authentication> {
                 {this.state.login ?
                     (
                         <div className="login-form">
-                            <Form>
+                            <Form onSubmit={this.handleSubmit}>
                                 <h1>{this.title()}</h1>
                                 <br />
                                 <FormGroup>
-                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
+                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} required type="email" id="email" value={this.state.email}></Input>
                                 </FormGroup>
                                 <br />
                                 <FormGroup>
-                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} required type="password" id="password" value={this.state.password}></Input>
                                 </FormGroup>
                                 <br />
-                                <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                                <Button type="submit" className="btn-lg btn-dark btn-block">Submit</Button>
                                 <br />
                                 <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>New User? Click here to create an account.</u></b></p>
                             </Form>
                         </div>
                     ) : (
                         <div className="signup-form">
-                            <Form >
+                            <Form onSubmit={this.handleSubmit}>
                                 <h1>{this.title()}</h1>
                                 <br />
                                 <FormGroup>
-                                    <Input placeholder='First Name' onChange={(e) => this.setState({ firstName: e.target.value })} type="text" id="firstName" value={this.state.firstName}></Input>
+                                    <Input placeholder='First Name' onChange={(e) => this.setState({ firstName: e.target.value })} required type="text" id="firstName" value={this.state.firstName}></Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input placeholder='Last Name' onChange={(e) => this.setState({ lastName: e.target.value })} type="text" id="lastName" value={this.state.lastName}></Input>
+                                    <Input placeholder='Last Name' onChange={(e) => this.setState({ lastName: e.target.value })} required type="text" id="lastName" value={this.state.lastName}></Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} type="email" id="email" value={this.state.email}></Input>
+                                    <Input placeholder='Email' onChange={(e) => this.setState({ email: e.target.value })} required type="email" id="email" value={this.state.email}></Input>
                                 </FormGroup>
                                 <FormGroup>
-                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} type="password" id="password" value={this.state.password}></Input>
+                                    <Input placeholder='Password' onChange={(e) => this.setState({ password: e.target.value })} required type="password" id="password" value={this.state.password}></Input>
                                 </FormGroup>
-                                <Button type="submit" onClick={this.handleSubmit} className="btn-lg btn-dark btn-block">Submit</Button>
+                                <Button type="submit" className="btn-lg btn-dark btn-block">Submit</Button>
                                 <br />
                                 <p onClick={this.loginToggle} style={{ cursor: "pointer" }}><b><u>Already have an account? Sign in!</u></b></p>
                             </Form>
