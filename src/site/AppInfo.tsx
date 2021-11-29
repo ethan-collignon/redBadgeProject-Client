@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Navigation from './Navbar';
 import Auth from './Auth';
-// import {Route, Navigate} from "react-router-dom"
-
 
 type State = {
     sessionToken: string,
@@ -38,7 +36,7 @@ class AppInfo extends Component<{}, State> {
 
     updateRole = (role: string) => {
         localStorage.setItem("role", role)
-        this.setState({role: role});
+        this.setState({ role: role });
     };
 
     clearToken() {
@@ -48,11 +46,11 @@ class AppInfo extends Component<{}, State> {
     }
 
     landingPage = () => (
-        <Navigation userId={this.state.userId} role={this.state.role}  clearToken={this.clearToken} updateToken={this.updateToken}/>
+        <Navigation userId={this.state.userId} role={this.state.role} clearToken={this.clearToken} updateToken={this.updateToken} />
     )
 
     viewConductor = () => {
-        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} updateRole={this.updateRole}/>;
+        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} updateRole={this.updateRole} />;
     };
 
     render() {

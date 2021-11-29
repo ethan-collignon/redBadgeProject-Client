@@ -79,10 +79,10 @@ export default class Eatery extends Component<Props, EateryState> {
 
     render() {
         return (
-            <div style={{ paddingTop: '25px' }}>
+            <div style={{ paddingTop: '30px' }}>
                 <>
                     <h3>Eatery Review</h3>
-                    <Container style={{ paddingTop: '15px' }}>
+                    <Container style={{ paddingTop: '15px', display: 'flex' ,justifyContent: 'center', paddingLeft: '0px'}}>
                         <div style={{ paddingRight: '40px' }}>
                             <DisplayEateryReviews
                                 id={this.state.updatedEateryReviews.id}

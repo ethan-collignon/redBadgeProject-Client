@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 import "./auth.css";
 
-interface Authentication  {
+interface Authentication {
     sessionToken: string,
     firstName: string,
     lastName: string,
@@ -14,7 +14,7 @@ interface Authentication  {
     id: number
 }
 
-interface User  {
+interface User {
     firstName: string,
     lastName: string,
     email: string,
@@ -114,7 +114,7 @@ class Auth extends Component<Props, Authentication> {
     };
     render() {
         return (
-            <div style={{paddingTop: '75px'}}>
+            <div style={{ paddingTop: '75px' }}>
                 {this.state.login ?
                     (
                         <div className="login-form">
