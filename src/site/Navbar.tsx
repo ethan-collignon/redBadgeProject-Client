@@ -32,7 +32,7 @@ class Navigation extends Component<Props, any> {
                 <Navbar >
                     <Router>
                         <div>
-                            <Nav className= 'navbar navbar-expand' style={{backgroundColor: "#472E01", height: "45px", width: "1400px", justifyItems: "center"}} >
+                            <Nav className= 'navbar navbar-expand' style={{backgroundColor: "#472E01", height: "45px", width: "1400px", justifyItems: "center", borderRadius:'4px'}} >
                                 <NavItem >
                                     <Link to='/Home'></Link>
                                 </NavItem>
@@ -43,7 +43,7 @@ class Navigation extends Component<Props, any> {
                                     <Link style={{paddingRight: '20px', color: '#BDBCBC'}} to='/Eatery'>Eateries</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <a style={{paddingRight: '8px', color: '#BDBCBC'}} target="_blank" href="https://www.mountainproject.com">Mountain Project</a> 
+                                    <a style={{paddingRight: '8px', color: '#BDBCBC'}} rel="noreferrer" target="_blank" href="https://www.mountainproject.com">Mountain Project</a> 
                                 </NavItem>
                                 {this.props.role === 'admin' ?
                                     <NavItem >
