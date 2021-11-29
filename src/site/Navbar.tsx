@@ -29,25 +29,25 @@ class Navigation extends Component<Props, any> {
         }
         return (
             <>
-                <Navbar style={{backgroundColor: "#472E01", height: "45px", width: "100%", justifySelf: "center"}}>
+                <Navbar >
                     <Router>
                         <div>
-                            <Nav>
+                            <Nav className= 'navbar navbar-expand' style={{backgroundColor: "#472E01", height: "45px", width: "1400px", justifyItems: "center"}} >
                                 <NavItem >
                                     <Link to='/Home'></Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link style={{paddingRight: '30px', paddingTop: '20px', color: '#BDBCBC'}} to='/Camping'>Campsites</Link>
+                                    <Link style={{paddingRight: '35px', paddingTop: '0px', color: '#BDBCBC'}} to='/Camping'>Campsites</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link style={{paddingRight: '30px', color: '#BDBCBC'}} to='/Eatery'>Eateries</Link>
+                                    <Link style={{paddingRight: '20px', color: '#BDBCBC'}} to='/Eatery'>Eateries</Link>
                                 </NavItem>
-                                <NavItem>
+                                <NavItem className="nav-link disabled">
                                     <Link style={{paddingRight: '0px', color: '#BDBCBC'}} to='/https://www.mountainproject.com'>Mountain Project</Link>
                                 </NavItem>
                                 {this.props.role === 'admin' ?
                                     <NavItem >
-                                        <Link style={{paddingLeft: '30px', color: '#BDBCBC'}} to='/Admin'>Admin</Link>
+                                        <Link style={{paddingRight: '25px', color: '#BDBCBC'}} to='/Admin'>Admin</Link>
                                     </NavItem> : null
                                 }
                                 <NavItem className="form-inline my-2 my-lg-0" style={{paddingLeft: '935px'}}>
