@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
-type EateryInfo = {
+interface EateryInfo  {
     eateryName: string
-    cost: number
+    cost: string
     rating: number
     review: string
 }
@@ -11,7 +11,6 @@ type EateryInfo = {
 type Props = {
     sessionToken: string
     fetchEateryReview: () => void
-    // campsite: any
 }
 
 export default class EateryCreate extends Component<Props, EateryInfo> {
@@ -19,7 +18,7 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
         super(props)
         this.state = {
             eateryName: '',
-            cost: 0,
+            cost: '',
             rating: 0,
             review: ''
         }
@@ -40,7 +39,7 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
             console.log(data);
             this.setState({
                 eateryName: '',
-                cost: 0,
+                cost: '',
                 rating: 0,
                 review: ''
             });
@@ -52,33 +51,41 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
     render(){
         return (
             <div>
-                <Form>
+                <Form style={{ padding: "25px 25px 25px 25px", backgroundColor: "#028261 ", borderRadius: "10px", boxShadow: '10px 10px 10px black' }}>
                 <FormGroup>
                     <Label htmlFor='eateryName'>
-                        <Input placeholder='Eatery Name' name='eateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({eateryName: String (e.target.value)})}>
+                        <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: "275px", boxShadow: "2px 2px 3px black"}} placeholder='Eatery Name' name='eateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({eateryName: String (e.target.value)})}>
                         </Input>
                     </Label>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor='cost'>
-                        <Input placeholder='Cost/ Night' name='cost' type='number' value={this.state.cost} onChange={(e) => this.setState({cost: Number(e.target.value)})}>
+                        <Label style={{paddingRight: "7px", fontSize: "24px"}} htmlFor='cost'>Cost</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', fontSize: "20px"}} placeholder='Cost/ Night' name='cost' type='select' value={this.state.cost} onChange={(e) => this.setState({ cost: String(e.target.value) })}>
+                            <option>N/A</option>
+                            <option>$</option>
+                            <option>$$</option>
+                            <option>$$$</option>
+                            <option>$$$$</option>
                         </Input>
-                    </Label>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor='rating'>
-                        <Input placeholder='Rating 1-5' name='rating' type='number' value={this.state.rating} onChange={(e) => this.setState({rating: Number(e.target.value)})}>
+                        <Label style={{paddingLeft: "75px",paddingRight: "7px", fontSize: "24px"}} htmlFor='rating'>Rating</Label>
+                        <Input style={{borderRadius: "5px", backgroundColor: 'lightgray', paddingLeft: "10px", fontSize: "20px"}} placeholder='Rating 1-5' name='rating' type='select' value={this.state.rating} onChange={(e) => this.setState({ rating: Number(e.target.value) })}>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
                         </Input>
-                    </Label>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor='Review'>
-                        <Input placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({review: String(e.target.value)})}>
-                        </Input>
-                    </Label>
-                </FormGroup>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label htmlFor='Review'>
+                            <Input style={{textAlign: 'center', backgroundColor: 'lightgray', width: '300px', height: '200px', boxShadow: "2px 2px 3px black"}} placeholder='Review' name='Review' type='textarea' value={this.state.review} onChange={(e) => this.setState({ review: String(e.target.value) })}>
+                            </Input>
+                        </Label>
+                    </FormGroup>
+                    <Button className="btn-lg btn-dark btn-block" onClick={(e) => {this.createEateryReview(e)}} type='submit'>Submit</Button>
             </Form>
-            <Button onClick={(e) => {this.createEateryReview(e)}} type='submit'>Submit</Button>
+            
             </div>
         )
     }

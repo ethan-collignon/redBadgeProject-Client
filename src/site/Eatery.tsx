@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import EateryCreate from '../components/EateryCreate';
-import DisplayEateryReviews from '../components/DisplayEateryReviews'
-import EditEateryReview from '../components/EditEateryReview'
+import DisplayEateryReviews from '../components/DisplayEateryReviews';
+import EditEateryReview from '../components/EditEateryReview';
+import { Container } from 'reactstrap';
 
 type EateryState = {
     eatery: []
     updatedEateryReviews: {
         eateryName: string
-        cost: number
+        cost: string
         rating: number
         review: string
         id: string
@@ -22,9 +23,9 @@ type Props = {
     clearToken: () => void
 }
 
-type EateryInfo = {
+interface EateryInfo {
     eateryName: string
-    cost: number
+    cost: string
     rating: number
     review: string
     id: string
@@ -38,7 +39,7 @@ export default class Eatery extends Component<Props, EateryState> {
             updateActive: false,
             updatedEateryReviews: {
                 eateryName: '',
-                cost: 0,
+                cost: '',
                 rating: 0,
                 review: '',
                 id: ''
@@ -78,26 +79,31 @@ export default class Eatery extends Component<Props, EateryState> {
 
     render() {
         return (
-            <div>
+            <div style={{ paddingTop: '30px' }}>
                 <>
-                    <EateryCreate
-                        sessionToken={this.props.sessionToken}
-                        fetchEateryReview={this.fetchEateryReviews}
-                    />
-                    <DisplayEateryReviews
-                        id={this.state.updatedEateryReviews.id}
-                        sessionToken={this.props.sessionToken}
-                        eatery={this.state.eatery}
-                        fetchEateryReview={this.fetchEateryReviews}
-                        updateEateryReview={this.updateEateryReview}
-                        updateOn={this.updateOn}
-                    />
-                    {this.state.updateActive ?
-                        <EditEateryReview
-                            fetchEateryReviews={this.fetchEateryReviews}
-                            sessionToken={this.props.sessionToken}
-                            updateEatery={this.state.updatedEateryReviews}
-                            updateOff={this.updateOff} /> : null}
+                    <h3>Eatery Review</h3>
+                    <Container style={{ paddingTop: '15px', display: 'flex' ,justifyContent: 'center', paddingLeft: '0px'}}>
+                        <div style={{ paddingRight: '40px' }}>
+                            <DisplayEateryReviews
+                                id={this.state.updatedEateryReviews.id}
+                                sessionToken={this.props.sessionToken}
+                                eatery={this.state.eatery}
+                                fetchEateryReview={this.fetchEateryReviews}
+                                updateEateryReview={this.updateEateryReview}
+                                updateOn={this.updateOn} />
+                            {this.state.updateActive ?
+                                <EditEateryReview
+                                    fetchEateryReviews={this.fetchEateryReviews}
+                                    sessionToken={this.props.sessionToken}
+                                    updateEatery={this.state.updatedEateryReviews}
+                                    updateOff={this.updateOff} /> : null}
+                                    </div>
+                                    <div>
+                            <EateryCreate
+                                sessionToken={this.props.sessionToken}
+                                fetchEateryReview={this.fetchEateryReviews} />
+                        </div>
+                    </Container>
                 </>
             </div>
         )

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import CampingCreate from '../components/CampingCreate';
 import DisplayCampingReviews from '../components/DisplayCampingReviews';
 import EditCampsiteReview from '../components/EditCampsiteReview';
-
+import { Container } from 'reactstrap';
 
 type CampingState = {
     campsite: []
     updatedReviews: {
         siteName: string
-        cost: number
+        cost: string
         rating: number
         review: string
         id: string
@@ -23,9 +23,9 @@ type Props = {
     clearToken: () => void
 }
 
-type CampingInfo = {
+interface CampingInfo {
     siteName: string
-    cost: number
+    cost: string
     rating: number
     review: string
     id: string
@@ -39,13 +39,12 @@ export default class Camping extends Component<Props, CampingState> {
             updateActive: false,
             updatedReviews: {
                 siteName: '',
-                cost: 0,
+                cost: '',
                 rating: 0,
                 review: '',
                 id: '',
 
             }
-            // this.deleteReviews = this.deleteReviews.bind(this)
         }
     }
 
@@ -81,25 +80,31 @@ export default class Camping extends Component<Props, CampingState> {
 
     render() {
         return (
-            <div>
+            <div style={{ paddingTop: '30px' }}>
                 <>
-                    <CampingCreate
-                        sessionToken={this.props.sessionToken}
-                        fetchCampReview={this.fetchCampReviews}
-                    />
-                    <DisplayCampingReviews
-                        id={this.state.updatedReviews.id}
-                        sessionToken={this.props.sessionToken}
-                        campsite={this.state.campsite}
-                        fetchCampReview={this.fetchCampReviews}
-                        updateSiteReview={this.updateSiteReview}
-                        updateOn={this.updateOn} />
-                    {this.state.updateActive ?
-                        <EditCampsiteReview
-                            fetchCampReviews={this.fetchCampReviews}
-                            sessionToken={this.props.sessionToken}
-                            updateCampsite={this.state.updatedReviews}
-                            updateOff={this.updateOff} /> : null}
+                    <h3>Campsite Review</h3>
+                    <Container style={{ paddingTop: '15px', display: 'flex' ,justifyContent: 'center', paddingLeft: '0px' }}>
+                        <div style={{ paddingRight: '40px' }}>
+                            <CampingCreate
+                                sessionToken={this.props.sessionToken}
+                                fetchCampReview={this.fetchCampReviews} />
+                        </div>
+                        <div>
+                            <DisplayCampingReviews
+                                id={this.state.updatedReviews.id}
+                                sessionToken={this.props.sessionToken}
+                                campsite={this.state.campsite}
+                                fetchCampReview={this.fetchCampReviews}
+                                updateSiteReview={this.updateSiteReview}
+                                updateOn={this.updateOn} />
+                            {this.state.updateActive ?
+                                <EditCampsiteReview
+                                    fetchCampReviews={this.fetchCampReviews}
+                                    sessionToken={this.props.sessionToken}
+                                    updateCampsite={this.state.updatedReviews}
+                                    updateOff={this.updateOff} /> : null}
+                        </div>
+                    </Container>
                 </>
             </div>
         )

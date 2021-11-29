@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-// import {Button} from 'reactstrap';
+import React, { Component } from 'react';
 import DisplayUsers from '../components/DisplayUsers'
 
 type Props = {
@@ -7,9 +6,8 @@ type Props = {
     role: string
 }
 
-type AdminState = {
+interface AdminState {
     users: []
-    // userOn: boolean
 }
 
 export default class Admin extends Component<Props, AdminState> {
@@ -17,7 +15,6 @@ export default class Admin extends Component<Props, AdminState> {
         super(props)
         this.state = {
             users: []
-            // userOn: false
         }
     }
 
@@ -26,21 +23,21 @@ export default class Admin extends Component<Props, AdminState> {
     }
 
     fetchAllUsers = () => {
-        fetch(`http://localhost:3000/user/getUsers`,{
+        fetch(`http://localhost:3000/user/getUsers`, {
             method: "GET",
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${this.props.sessionToken}`
             })
         })
-        .then(res => res.json())
-        .then(data => {
-            this.setState({
-                users: data
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    users: data
+                })
+                console.log(this.state.users);
             })
-            console.log(this.state.users);
-        })
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     }
 
     deleteUsers = (id: string) => {
@@ -51,16 +48,17 @@ export default class Admin extends Component<Props, AdminState> {
                 'Authorization': `Bearer ${this.props.sessionToken}`
             })
         }).then(res => res.json())
-        .then(data => {
-            this.fetchAllUsers();
-        }).catch(err => console.log(err))
+            .then(data => {
+                this.fetchAllUsers();
+            }).catch(err => console.log(err))
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <>
-                    <DisplayUsers users={this.state.users} deleteUsers={this.deleteUsers}/>
+                    <h2 style={{ paddingTop: '30px', paddingBottom: '25px' }}>User Data</h2>
+                    <DisplayUsers users={this.state.users} deleteUsers={this.deleteUsers} />
                 </>
             </div>
         )

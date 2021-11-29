@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Navigation from './Navbar'
-import Auth from './Auth'
+import Navigation from './Navbar';
+import Auth from './Auth';
 
 type State = {
     sessionToken: string,
@@ -8,10 +8,6 @@ type State = {
     userId: number
     role: string
 }
-
-// type Props = {
-//     clearToken() => void
-// }
 
 class AppInfo extends Component<{}, State> {
     constructor(props: {}) {
@@ -40,20 +36,21 @@ class AppInfo extends Component<{}, State> {
 
     updateRole = (role: string) => {
         localStorage.setItem("role", role)
-        this.setState({role: role});
+        this.setState({ role: role });
     };
 
     clearToken() {
         localStorage.clear();
-        this.setState({ sessionToken: '', role: '' })
+        this.setState({ sessionToken: '', role: '' });
+        window.location.href = '/'
     }
 
     landingPage = () => (
-        <Navigation userId={this.state.userId} role={this.state.role}  clearToken={this.clearToken} updateToken={this.updateToken}/>
+        <Navigation userId={this.state.userId} role={this.state.role} clearToken={this.clearToken} updateToken={this.updateToken} />
     )
 
     viewConductor = () => {
-        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} updateRole={this.updateRole}/>;
+        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} updateRole={this.updateRole} />;
     };
 
     render() {
