@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Table, Button } from 'reactstrap';
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     campsite: Campsite[]
     fetchCampReview: () => void
     updateSiteReview: (campsite: Campsite) => void

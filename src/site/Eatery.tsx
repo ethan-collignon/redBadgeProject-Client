@@ -17,7 +17,7 @@ type EateryState = {
 }
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     userId: number
     updateLocalStorage: (newToken: string) => void
     clearToken: () => void

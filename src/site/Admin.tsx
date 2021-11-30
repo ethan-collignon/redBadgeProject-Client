@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayUsers from '../components/DisplayUsers'
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     role: string
 }
 
