@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DisplayUsers from '../components/DisplayUsers'
+import DisplayUsers from '../components/DisplayUsers';
+import APIURL from '../helpers/environment'
 
 type Props = {
     sessionToken: string | null
@@ -23,7 +24,7 @@ export default class Admin extends Component<Props, AdminState> {
     }
 
     fetchAllUsers = () => {
-        fetch(`http://localhost:3000/user/getUsers`, {
+        fetch(`${APIURL}/user/getUsers`, {
             method: "GET",
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -41,7 +42,7 @@ export default class Admin extends Component<Props, AdminState> {
     }
 
     deleteUsers = (id: string) => {
-        fetch(`http://localhost:3000/user/delete/${id}`, {
+        fetch(`${APIURL}/user/delete/${id}`, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json',

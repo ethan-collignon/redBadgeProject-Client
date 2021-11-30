@@ -3,6 +3,7 @@ import CampingCreate from '../components/CampingCreate';
 import DisplayCampingReviews from '../components/DisplayCampingReviews';
 import EditCampsiteReview from '../components/EditCampsiteReview';
 import { Container } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 type CampingState = {
     campsite: []
@@ -57,7 +58,7 @@ export default class Camping extends Component<Props, CampingState> {
     }
 
     fetchCampReviews = () => {
-        fetch(`http://localhost:3000/campsite/${this.props.userId}`, {
+        fetch(`${APIURL}/campsite/${this.props.userId}`, {
             method: "GET",
             headers: new Headers({
                 'Content-Type': 'application/json',

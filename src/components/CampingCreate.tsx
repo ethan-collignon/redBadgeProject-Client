@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 
 interface CampingInfo {
@@ -27,7 +28,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
 
     createReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        fetch("http://localhost:3000/campsite/create", {
+        fetch(`${APIURL}/campsite/create`, {
             method: "POST",
             body: JSON.stringify({ campsite: { siteName: this.state.siteName, cost: this.state.cost, rating: this.state.rating, review: this.state.review } }),
             headers: new Headers({
