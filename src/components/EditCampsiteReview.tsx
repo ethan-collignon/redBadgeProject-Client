@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 type Props = {
     sessionToken: string | null
@@ -30,7 +31,7 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
 
     updateCampsiteReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        fetch(`http://localhost:3000/campsite/update/${this.props.updateCampsite.id}`, {
+        fetch(`${APIURL}/campsite/update/${this.props.updateCampsite.id}`, {
             method: "PUT",
             body: JSON.stringify({
                 campsite: {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Table, Button } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 type Props = {
     sessionToken: string | null
@@ -22,7 +23,7 @@ export default class DisplayCampingReview extends Component<Props, Campsite> {
     deleteReviews = (id: string) => {
         console.log(id);
 
-        fetch(`http://localhost:3000/campsite/delete/${id}`, {
+        fetch(`${APIURL}/campsite/delete/${id}`, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json',

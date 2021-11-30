@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 import "./auth.css";
+import APIURL from '../helpers/environment'
 
 interface Authentication {
     sessionToken: string | null,
@@ -84,8 +85,8 @@ class Auth extends Component<Props, Authentication> {
                 },
             };
         let url = this.state.login
-            ? `http://localhost:3000/user/login`
-            : `http://localhost:3000/user/register`;
+            ? `${APIURL}/user/login`
+            : `${APIURL}/user/register`;
         console.log(reqBody);
 
         fetch(url, {

@@ -3,6 +3,7 @@ import EateryCreate from '../components/EateryCreate';
 import DisplayEateryReviews from '../components/DisplayEateryReviews';
 import EditEateryReview from '../components/EditEateryReview';
 import { Container } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 type EateryState = {
     eatery: []
@@ -56,7 +57,7 @@ export default class Eatery extends Component<Props, EateryState> {
     }
 
     fetchEateryReviews = () => {
-        fetch(`http://localhost:3000/eatery/${this.props.userId}`, {
+        fetch(`${APIURL}/eatery/${this.props.userId}`, {
             method: "GET",
             headers: new Headers({
                 'Content-Type': 'application/json',

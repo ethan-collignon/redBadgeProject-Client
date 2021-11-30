@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from '../helpers/environment'
 
 interface EateryInfo  {
     eateryName: string
@@ -26,7 +27,7 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
 
     createEateryReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        fetch("http://localhost:3000/eatery/create", {
+        fetch(`${APIURL}/eatery/create`, {
             method: "POST",
             body: JSON.stringify({ eatery: { eateryName: this.state.eateryName, cost: this.state.cost, rating: this.state.rating, review: this.state.review }}),
             headers: new Headers({

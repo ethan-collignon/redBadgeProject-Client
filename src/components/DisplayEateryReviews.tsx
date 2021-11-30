@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, Button } from "reactstrap";
+import APIURL from '../helpers/environment'
 
 type Props = {
     sessionToken: string | null
@@ -20,7 +21,7 @@ interface Eatery  {
 
 export default class DisplayEateryReviews extends Component<Props, Eatery> {
     deleteReviews = (id: string) => {
-        fetch(`http://localhost:3000/eatery/delete/${id}`, {
+        fetch(`${APIURL}/eatery/delete/${id}`, {
             method: "DELETE",
             headers: new Headers({
                 'Content-Type': 'application/json',
