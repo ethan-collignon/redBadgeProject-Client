@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 code {
@@ -12,3 +13,4 @@ code {
     monospace;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");

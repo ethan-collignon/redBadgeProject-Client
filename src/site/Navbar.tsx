@@ -32,22 +32,22 @@ class Navigation extends Component<Props, any> {
                 <Navbar >
                     <Router>
                         <div>
-                            <Nav className= 'navbar navbar-expand' style={{backgroundColor: "#472E01", height: "45px", width: "1400px", justifyItems: "center"}} >
+                            <Nav className= 'navbar navbar-expand' style={{backgroundColor: "#472E01", height: "45px", width: "1400px", justifyItems: "center", borderRadius:'4px'}} >
                                 <NavItem >
                                     <Link to='/Home'></Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link style={{paddingRight: '35px', paddingTop: '0px', color: '#BDBCBC'}} to='/Camping'>Campsites</Link>
+                                    <Link style={{paddingRight: '35px', paddingTop: '0px', color: '#BDBCBC', fontFamily: "'Amatic SC', cursive;'"}} to='/Camping'>Campsites</Link>
                                 </NavItem>
                                 <NavItem>
                                     <Link style={{paddingRight: '20px', color: '#BDBCBC'}} to='/Eatery'>Eateries</Link>
                                 </NavItem>
-                                <NavItem className="nav-link disabled">
-                                    <Link style={{paddingRight: '0px', color: '#BDBCBC'}} to='/https://www.mountainproject.com'>Mountain Project</Link>
+                                <NavItem>
+                                    <a style={{paddingRight: '8px', color: '#BDBCBC'}} rel="noreferrer" target="_blank" href="https://www.mountainproject.com">Mountain Project</a> 
                                 </NavItem>
                                 {this.props.role === 'admin' ?
                                     <NavItem >
-                                        <Link style={{paddingRight: '25px', color: '#BDBCBC'}} to='/Admin'>Admin</Link>
+                                        <Link style={{paddingRight: '25px', color: '#BDBCBC', paddingLeft: '25px'}} to='/Admin'>Admin</Link>
                                     </NavItem> : null
                                 }
                                 <NavItem className="form-inline my-2 my-lg-0" style={{paddingLeft: '935px'}}>
