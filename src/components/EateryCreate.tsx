@@ -9,7 +9,7 @@ interface EateryInfo  {
 }
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     fetchEateryReview: () => void
 }
 
@@ -24,7 +24,7 @@ export default class EateryCreate extends Component<Props, EateryInfo> {
         }
     }
 
-    createEateryReview = (e: any) => {
+    createEateryReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         fetch("http://localhost:3000/eatery/create", {
             method: "POST",

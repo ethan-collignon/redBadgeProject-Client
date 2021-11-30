@@ -13,12 +13,19 @@ type Props = {
     updateToken: (newToken: string) => void
 }
 
-class Navigation extends Component<Props, any> {
-    constructor(props: any) {
+type State = {
+ sessionToken: string | null
+ redirect: boolean | any
+ role: string
+}
+
+class Navigation extends Component<Props, State> {
+    constructor(props: Props) {
         super(props)
         this.state = {
             sessionToken: localStorage.getItem("token"),
-            user: JSON.parse(localStorage.getItem('user')!),
+            role: '',
+            // user: JSON.parse(localStorage.getItem('user')!),
             redirect: false
         }
     }

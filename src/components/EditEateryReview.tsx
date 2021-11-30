@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from "reactstrap";
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     updateEatery: UpdateReview
     fetchEateryReviews: () => void
     updateOff: () => void
@@ -28,7 +28,7 @@ export default class EditEateryReview extends Component<Props, UpdateReview> {
         }
     }
 
-    updateEateryReview = (e: any) => {
+    updateEateryReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         fetch(`http://localhost:3000/eatery/update/${this.props.updateEatery.id}`, {
             method: "PUT",
@@ -59,7 +59,7 @@ export default class EditEateryReview extends Component<Props, UpdateReview> {
             <Modal style={{ padding: "25px 25px 25px 25px", backgroundColor: "#028261", borderRadius: "10px", textAlign: 'center' }} isOpen={true}>
                 <ModalHeader style={{ backgroundColor: 'lightgray', justifyContent: 'center' }}>Edit Review</ModalHeader>
                 <ModalBody style={{ backgroundColor: 'lightgray' }}>
-                    <Form style={{ backgroundColor: 'lightgray' }} onSubmit={this.updateEateryReview}>
+                    <Form style={{ backgroundColor: 'lightgray' }} >
                         <FormGroup>
                             <Label htmlFor='eateryName'>
                                 <Input style={{ textAlign: 'center', width: "275px" }} placeholder='Eatery Name' name='EateryName' type='text' value={this.state.eateryName} onChange={(e) => this.setState({ eateryName: String(e.target.value) })}>

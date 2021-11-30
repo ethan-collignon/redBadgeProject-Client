@@ -3,23 +3,27 @@ import Navigation from './Navbar';
 import Auth from './Auth';
 
 type State = {
-    sessionToken: string,
-    user: any
+    sessionToken: string | null
+   
     userId: number
     role: string
 }
+
+// type User = {
+//     user
+// }
 
 class AppInfo extends Component<{}, State> {
     constructor(props: {}) {
         super(props)
         this.state = {
             sessionToken: '',
-            user: {},
+            
             userId: 0,
             role: ''
         }
         this.updateToken = this.updateToken.bind(this);
-        this.setUser = this.setUser.bind(this);
+        // this.setUser = this.setUser.bind(this);
         this.clearToken = this.clearToken.bind(this);
     }
 
@@ -28,11 +32,11 @@ class AppInfo extends Component<{}, State> {
         this.setState({ sessionToken: newToken })
     }
 
-    setUser(user: any) {
-        console.log(user)
-        localStorage.setItem('user', JSON.stringify(user))
-        this.setState({ user: user })
-    }
+    // setUser(user: any) {
+    //     console.log(user)
+    //     localStorage.setItem('user', JSON.stringify(user))
+    //     this.setState({ user: user })
+    // }
 
     updateRole = (role: string) => {
         localStorage.setItem("role", role)
@@ -50,7 +54,7 @@ class AppInfo extends Component<{}, State> {
     )
 
     viewConductor = () => {
-        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} setUser={this.setUser} updateRole={this.updateRole} />;
+        return this.state.sessionToken !== '' ? this.landingPage() : <Auth updateToken={this.updateToken} /*setUser={this.setUser}*/ updateRole={this.updateRole} />;
     };
 
     render() {

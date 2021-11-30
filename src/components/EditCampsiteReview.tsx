@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     updateCampsite: UpdateReview
     fetchCampReviews: () => void
     updateOff: () => void
@@ -28,7 +28,7 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
         }
     }
 
-    updateCampsiteReview = (e: any) => {
+    updateCampsiteReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         fetch(`http://localhost:3000/campsite/update/${this.props.updateCampsite.id}`, {
             method: "PUT",
@@ -58,7 +58,7 @@ export default class EditCampsiteReview extends Component<Props, UpdateReview> {
             <Modal style={{ padding: "25px 25px 25px 25px", backgroundColor: "#01730A", borderRadius: "10px", textAlign: 'center' }} isOpen={true}>
                 <ModalHeader style={{backgroundColor: 'lightgray', justifyContent: 'center'}}>Edit Review</ModalHeader>
                 <ModalBody style={{backgroundColor: 'lightgray'}}>
-                    <Form style={{backgroundColor: 'lightgray'}} onSubmit={this.updateCampsiteReview}>
+                    <Form style={{backgroundColor: 'lightgray'}} >
                         <FormGroup >
                             <Label htmlFor='campsiteName'>
                                 <Input style={{textAlign: 'center', width: "275px"}} placeholder='Campsite Name' name='campsiteName' type='text' value={this.state.siteName} onChange={(e) => this.setState({ siteName: String(e.target.value) })}>

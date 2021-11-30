@@ -4,7 +4,7 @@ import { Button, Form, FormGroup, Input } from "reactstrap";
 import "./auth.css";
 
 interface Authentication {
-    sessionToken: string,
+    sessionToken: string | null,
     firstName: string,
     lastName: string,
     email: string,
@@ -14,19 +14,19 @@ interface Authentication {
     id: number
 }
 
-interface User {
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    login: boolean,
-    role: string,
-    id: number,
-}
+// interface User {
+//     firstName: string,
+//     lastName: string,
+//     email: string,
+//     password: string,
+//     login: boolean,
+//     role: string,
+//     id: number,
+// }
 
 type Props = {
     updateToken: (newToken: string) => void
-    setUser: (user: User) => void
+    // setUser: (user: User) => void
     updateRole: (role: string) => void
 }
 
@@ -53,7 +53,7 @@ class Auth extends Component<Props, Authentication> {
 
     }
 
-    loginToggle = (e: any) => {
+    loginToggle = (e: React.MouseEvent<HTMLParagraphElement>) => {
         e.preventDefault();
         this.setState({
             login: !this.state.login,
@@ -66,7 +66,7 @@ class Auth extends Component<Props, Authentication> {
         })
     }
 
-    handleSubmit = (e: any) => {
+    handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         let reqBody = this.state.login ?
             {
@@ -108,7 +108,7 @@ class Auth extends Component<Props, Authentication> {
                     id: data.user.id
                 });
                 this.props.updateToken(data.sessionToken);
-                this.props.setUser(data.user);
+                // this.props.setUser(data.user);
                 this.props.updateRole(data.user.role)
             })
     };

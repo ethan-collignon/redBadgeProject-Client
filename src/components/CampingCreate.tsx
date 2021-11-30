@@ -10,7 +10,7 @@ interface CampingInfo {
 }
 
 type Props = {
-    sessionToken: string
+    sessionToken: string | null
     fetchCampReview: () => void
 }
 
@@ -25,7 +25,7 @@ export default class CampingCreate extends Component<Props, CampingInfo> {
         }
     }
 
-    createReview = (e: any) => {
+    createReview = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         fetch("http://localhost:3000/campsite/create", {
             method: "POST",
