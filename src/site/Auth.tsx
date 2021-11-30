@@ -14,15 +14,15 @@ interface Authentication {
     id: number
 }
 
-interface User {
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-    login: boolean,
-    role: string,
-    id: number,
-}
+// interface User {
+//     firstName: string,
+//     lastName: string,
+//     email: string,
+//     password: string,
+//     login: boolean,
+//     role: string,
+//     id: number,
+// }
 
 type Props = {
     updateToken: (newToken: string) => void
